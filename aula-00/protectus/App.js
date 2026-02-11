@@ -1,24 +1,17 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import Header from './components/Header/Header';
+import MainCard from './components/MainCard/MainCard';
+import BottomNav from './components/BottomNav/BottomNav';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
-        <Image source={require('./assets/dede.jpg')} style={styles.profilePicture} />
-      </View>
-      <View style={styles.mainCard} activeOpacity={0.6}>
-        <Text style={styles.valueText}>R$ 64,500.49</Text>
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity style={styles.primaryButton} activeOpacity={0.6}>
-            <Text style={styles.buttonText}>+ Registrar</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.secondaryButton} activeOpacity={0.6}>
-            <Text style={styles.lightButtonText}>Verificar</Text>
-          </TouchableOpacity>
-        </View>
-      </View >
+      <Header />
+      <MainCard value={"R$ 64,500.49"} />
       <StatusBar style="auto" />
+      <View style={{ flex: 1 }} />
+      <BottomNav />
     </View>
   );
 }
